@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <style>
+        #results {
+            padding: 50px;
+            color: black;
 
+        }
+    </style>
     <title>IMC App</title>
 </head>
 
@@ -19,27 +25,85 @@
         <div class="card col-8 offset-2">
             <h4 class="card-header">Calculadora</h4>
             <div class="card-body">
-                <div class="row g-3">
-                    <form class="">
-                        <div class="col-sm-4">
-                            <div>
-                                <label for="peso">Peso (Kg)</label>
-                                <input id="peso" type="text" class="form-control" placeholder="Peso" aria-label="peso">
-                            </div>
-                            <div class="mt-4">
+
+                <div class="row align-items-start ">
+                    <div class="col align-self-center">
+                        <div>
+                            <label for="peso">Peso (Kg)</label>
+                            <input id="peso" type="text" class="form-control" placeholder="Peso" aria-label="peso">
+                        </div>
+                        <div class="mt-4">
+                            <form action="">
                                 <label class="" for="peso">Altura (Cm)</label>
                                 <input id="altura" type="text" class="form-control" placeholder="Peso"
                                     aria-label="Altura">
-                            </div>
+                            </form>
                         </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            IMC: XX
-                        </button>
+                    </div>
+                    <div class="col align-self-center ms-5">
+                        <div class="row col-8">
+                            <button id="results" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                               <p>IMC :</p> 
+                            </button>
 
-                    </form>
+
+                        </div>
+
+                    </div>
+                    <div class="col align-self-center">
+                        <img class="img-fluid" src="./images/bascula-dibujo.png" alt="">
+                    </div>
                 </div>
             </div>
+
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">IMC del Paciente</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="d-flex flex-column mb-3">
+                                        <div class="d-flex flex-inline mt-5">
+                                            <p>Peso: 30Kg</p>
+
+                                        </div>
+                                        <div class="d-flex flex-inline mt-5">
+                                            <p>Altura: 180cm</p>
+
+                                        </div>
+                                        <div class="d-flex flex-column mt-5">
+                                            <p>Interpretacion</p>
+                                            <p class="rounded bg-ligth border border-dark p-2">Lorem ipsum, dolor sit
+                                                amet
+                                                consectetur adipisicing elit. Consequuntur omnis maxime, alias
+                                                repudiandae
+                                                illum repellat animi! Cupiditate autem nobis voluptates, non eum dolores
+                                                modi placeat tempore distinctio similique, odio quibusdam.</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <img width="200" height="auto" src="./images/mesomorfo.png" alt="">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         <div class="card col-8 offset-2 mt-4">
             <h4 class="card-header">Calculo de Indece de Masa Corporal IMC</h4>
@@ -99,5 +163,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
+
+<script>
+    btn = document.querySelector('#altura').addEventListener('submit', calculo)
+
+    function calculo() {
+        let peso = document.querySelector('#peso').value
+        let altura = document.querySelector('#altura').value
+        console.log(peso + ", " + altura);
+    }
+</script>
 
 </html>
